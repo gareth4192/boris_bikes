@@ -1,0 +1,9 @@
+nouns:
+1)person 2)bike 3)docking station 4)bike 5)person 6)bike 7)bike
+
+verbs:
+1)use 2)like 3)release 4)use 5)like 6)see
+
+Domain Model
+Bike <- working? ->true/false
+Docking Station <- release_bike -> a Bike
