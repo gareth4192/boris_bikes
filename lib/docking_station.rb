@@ -12,15 +12,22 @@ def initialize(capacity=DEFAULT_CAPACITY)
   @capacity = capacity
 end
 
-def release_bike
-  fail "no bikes" if empty?
-  @bikes.pop
-end
+
+
+  def release_bike
+      fail 'No bikes' if empty?
+      fail 'Bike is broken' unless bikes.any?{|bike| bike.working?}#if all bikes are broken
+      bikes.delete_if{|bike| bike.working?}
+      end
+  
+
 
 def dock(bike)
   fail "error full" if full?
   @bikes << bike
 end
+
+
 
 private
 def empty?
@@ -30,5 +37,8 @@ end
 def full?
   @bikes.size >= @capacity ? true : false
 end
+
+
+
 
 end
