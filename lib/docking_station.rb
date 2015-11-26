@@ -2,10 +2,14 @@ require_relative 'bike'
 
 
 class DockingStation
-  attr_reader :bikes
+  DEFAULT_CAPACITY = 20
 
-def initialize
-  @bikes=[]
+  attr_reader :bikes
+  attr_accessor :capacity
+
+def initialize(capacity=DEFAULT_CAPACITY)
+  @bikes = []
+  @capacity = capacity
 end
 
 def release_bike
@@ -24,7 +28,7 @@ def empty?
 end
 
 def full?
-  @bikes.size >= 20 ? true : false
+  @bikes.size >= @capacity ? true : false
 end
 
 end
