@@ -14,12 +14,12 @@ end
 
 
 
-  def release_bike
-      fail 'No bikes' if empty?
-      fail 'Bike is broken' unless bikes.any?{|bike| bike.working?}#if all bikes are broken
-      bikes.delete_if{|bike| bike.working?}
-      end
-  
+def release_bike
+  fail 'No bikes' if empty?
+  fail 'Bike is broken' unless bikes.any?{|bike| bike.working?}#if all bikes are broken
+  bikes.delete(bikes.find {|bike| bike.working?})
+end
+
 
 
 def dock(bike)

@@ -15,7 +15,7 @@ end
 it "Should show a docked bike" do
   bike = Bike.new
   subject.dock(bike)
-  expect(subject.bikes).to eq [bike]
+  expect(subject.release_bike).to eq bike
 end
 
 it "Has default capacity" do
@@ -40,7 +40,7 @@ describe '#release_bike' do
   it 'releases a bike' do
     bike = Bike.new
     subject.dock(bike)
-    expect(subject.release_bike).to eq []
+    expect(subject.release_bike).to eq bike
   end
 
   it 'shows an error if station is empty' do
